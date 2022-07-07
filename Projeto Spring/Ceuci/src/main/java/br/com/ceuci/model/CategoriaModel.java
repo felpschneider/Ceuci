@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table (name = "tb_categoria")
@@ -14,11 +15,14 @@ public class CategoriaModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	private boolean horta;
+	@NotNull
+	private String horta;
 
-	private boolean mercearia;
+	@NotNull
+	private String mercearia;
 	
-	private boolean misto;
+	@NotNull
+	private String misto;
 
 	public long getId() {
 		return id;
@@ -28,27 +32,27 @@ public class CategoriaModel {
 		this.id = id;
 	}
 
-	public boolean isHorta() {
+	public String isHorta() {
 		return horta;
 	}
 
-	public void setHorta(boolean horta) {
+	public void setHorta(String horta) {
 		this.horta = horta;
 	}
 
-	public boolean isMercearia() {
+	public String isMercearia() {
 		return mercearia;
 	}
 
-	public void setMercearia(boolean mercearia) {
+	public void setMercearia(String mercearia) {
 		this.mercearia = mercearia;
 	}
 
-	public boolean isMisto() {
+	public String isMisto() {
 		return misto;
 	}
 
-	public void setMisto(boolean misto) {
+	public void setMisto(String misto) {
 		this.misto = misto;
 	}
 
