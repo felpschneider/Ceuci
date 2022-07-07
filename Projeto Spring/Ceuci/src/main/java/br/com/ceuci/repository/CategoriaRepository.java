@@ -9,6 +9,6 @@ import br.com.ceuci.model.CategoriaModel;
 
 	@Repository
 	public interface CategoriaRepository extends JpaRepository<CategoriaModel, Long> {
-		public List<CategoriaModel> findAllByHortaAndMerceariaAndMistoContainingIgnoreCase (String horta, String mercearia, String misto);
+		public List<CategoriaModel> findAllByTipoContainingIgnoreCase (String tipo);
 		
 }

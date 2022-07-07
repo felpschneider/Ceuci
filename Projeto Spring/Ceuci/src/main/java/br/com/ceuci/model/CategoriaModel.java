@@ -6,23 +6,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
-@Table (name = "tb_categoria")
+@Table(name = "tb_categoria")
 public class CategoriaModel {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@NotNull
-	private String horta;
 
 	@NotNull
-	private String mercearia;
-	
-	@NotNull
-	private String misto;
+	@Size(min = 3, max = 10)
+	private String tipo;
 
 	public long getId() {
 		return id;
@@ -32,29 +28,12 @@ public class CategoriaModel {
 		this.id = id;
 	}
 
-	public String isHorta() {
-		return horta;
+	public String isTipo() {
+		return tipo;
 	}
 
-	public void setHorta(String horta) {
-		this.horta = horta;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
-	public String isMercearia() {
-		return mercearia;
-	}
-
-	public void setMercearia(String mercearia) {
-		this.mercearia = mercearia;
-	}
-
-	public String isMisto() {
-		return misto;
-	}
-
-	public void setMisto(String misto) {
-		this.misto = misto;
-	}
-
-	
 }
