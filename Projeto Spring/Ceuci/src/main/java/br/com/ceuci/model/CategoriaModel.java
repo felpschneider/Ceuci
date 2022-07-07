@@ -28,7 +28,7 @@ public class CategoriaModel {
 		this.id = id;
 	}
 
-	public String isTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 
