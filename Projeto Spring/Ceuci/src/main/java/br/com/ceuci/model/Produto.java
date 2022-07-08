@@ -27,9 +27,6 @@ public class Produto {
 	@Size(min = 10, max = 500)
 	private String descricao;
 
-	@NotNull
-	private String produto;
-
 	private String foto;
 
 	@NotNull
@@ -73,14 +70,6 @@ public class Produto {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-
-	public String getProduto() {
-		return produto;
-	}
-
-	public void setProduto(String produto) {
-		this.produto = produto;
 	}
 
 	public String getFoto() {

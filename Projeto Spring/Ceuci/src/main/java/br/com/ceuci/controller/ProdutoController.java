@@ -51,9 +51,7 @@ public class ProdutoController {
 
 	@PutMapping
 	public ResponseEntity<Produto> put(@RequestBody Produto produto) {
-		return repository.findById(produto.getId()).map(resposta -> {
-			return ResponseEntity.ok(repository.save(produto));
-		}).orElse(ResponseEntity.notFound().build());
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(produto));
 	}
 
 	@DeleteMapping("/{id}")
@@ -65,6 +63,5 @@ public class ProdutoController {
 	public ResponseEntity<List<Produto>> getByProdutora(@PathVariable String produtora) {
 		return ResponseEntity.ok(repository.findAllByProdutoraContainingIgnoreCase(produtora));
 	}
-	
 
 }
