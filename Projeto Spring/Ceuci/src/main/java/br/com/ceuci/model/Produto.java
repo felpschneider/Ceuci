@@ -24,7 +24,7 @@ public class Produto {
 	private String nome;
 
 	@NotNull
-	@Size(min = 10, max = 500)
+	@Size(min = 10, max = 1000)
 	private String descricao;
 
 	private String foto;
@@ -45,9 +45,25 @@ public class Produto {
 	private Categoria categoria;
 
 	@ManyToOne 
-	@JsonIgnoreProperties ("produto")
+	@JsonIgnoreProperties ("usuario")
 	private Usuario usuario;
 	
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	public long getId() {
 		return id;
 	}

@@ -22,6 +22,9 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
+	@NotNull
+	@Size(min=3, max=50)
 	private String nome;
 	
 	@NotNull(message = "O atributo Usuário é Obrigatório!")
