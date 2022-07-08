@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.ceuci.model.CategoriaModel;
+import br.com.ceuci.model.Categoria;
 import br.com.ceuci.repository.CategoriaRepository;
 
 @RestController
@@ -27,28 +27,28 @@ public class CategoriaController {
 	private CategoriaRepository repository;
 
 	@GetMapping
-	public ResponseEntity<List<CategoriaModel>> getAll() {
+	public ResponseEntity<List<Categoria>> getAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<CategoriaModel> getById(@PathVariable long id) {
+	public ResponseEntity<Categoria> getById(@PathVariable long id) {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 
 	@GetMapping("/tipo/{tipo}")
-	public ResponseEntity<List<CategoriaModel>> getByTipo(@PathVariable String tipo) {
+	public ResponseEntity<List<Categoria>> getByTipo(@PathVariable String tipo) {
 		return ResponseEntity.ok(repository.findAllByTipoContainingIgnoreCase(tipo));
 	}
 	
 	@PostMapping
-	public ResponseEntity<CategoriaModel> post (@RequestBody CategoriaModel categoria) {
+	public ResponseEntity<Categoria> post (@RequestBody Categoria categoria) {
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(repository.save(categoria));
 	}
 	
 	@PutMapping
-	public ResponseEntity<CategoriaModel> put (@RequestBody CategoriaModel categoria) {
+	public ResponseEntity<Categoria> put (@RequestBody Categoria categoria) {
 		return ResponseEntity.ok(repository.save(categoria));
 	
 	}

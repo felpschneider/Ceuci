@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.ceuci.model.Categoria;
 import br.com.ceuci.model.Produto;
 import br.com.ceuci.repository.ProdutoRepository;
 
@@ -60,19 +61,10 @@ public class ProdutoController {
 		repository.deleteById(id);
 	}
 
-	@GetMapping("/preco_maior/{preco}")
-	public ResponseEntity<List<Produto>> getPrecoMaiorQue(@PathVariable Double preco) {
-		return ResponseEntity.ok(produtoRepository.findByPrecoGreaterThanOrderByPreco(preco));
-	}
-
-	@GetMapping("/preco_menor/{preco}")
-	public ResponseEntity<List<Produto>> getPrecoMenorQue(@PathVariable Double preco) {
-		return ResponseEntity.ok(produtoRepository.findByPrecoLessThanOrderByPrecoDesc(preco));
+	@GetMapping("/produtoras/{produtoras}")
+	public ResponseEntity<List<Produto>> getByProdutora(@PathVariable String produtora) {
+		return ResponseEntity.ok(repository.findAllByProdutoraContainingIgnoreCase(produtora));
 	}
 	
-	@GetMapping("/preco_menor/{preco}")
-	public ResponseEntity<List<Produto>> getPreco(@PathVariable Double preco) {
-		return ResponseEntity.ok(produtoRepository.findByPreco(preco));
-	}
 
 }
