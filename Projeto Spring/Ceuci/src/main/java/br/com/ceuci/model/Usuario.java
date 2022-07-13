@@ -31,7 +31,6 @@ public class Usuario {
 	@Email
 	private String usuario;
 	
-	
 	@Size(min = 8, message = "A Senha deve ter no mínimo 8 caracteres")
 	private String senha;
 	
