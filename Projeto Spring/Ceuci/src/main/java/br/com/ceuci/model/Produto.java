@@ -31,10 +31,6 @@ public class Produto {
 
 	@NotNull
 	@Size(min = 3, max = 50)
-	private String tamanho;
-	
-	@NotNull
-	@Size(min = 3, max = 50)
 	private String produtora;
 
 	@NotNull
@@ -94,14 +90,6 @@ public class Produto {
 
 	public void setFoto(String foto) {
 		this.foto = foto;
-	}
-
-	public String getTamanho() {
-		return tamanho;
-	}
-
-	public void setTamanho(String tamanho) {
-		this.tamanho = tamanho;
 	}
 	
 	public String getProdutora() {

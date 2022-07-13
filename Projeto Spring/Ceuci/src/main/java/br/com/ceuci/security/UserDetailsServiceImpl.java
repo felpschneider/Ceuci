@@ -19,7 +19,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 		
 		Optional<Usuario> user = userRepository.findByUsuario(userName);
-		user.orElseThrow(() -> new UsernameNotFoundException(userName + "Usuario não cadastrado."));
+		user.orElseThrow(() -> new UsernameNotFoundException(userName + " não cadastrado."));
 		
 		return user.map(UserDetailsImpl::new).get();
 	}
