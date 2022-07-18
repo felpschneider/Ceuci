@@ -26,8 +26,7 @@ package br.com.ceuci.configuration;
 						.url("https://brazil.generation.org/"))
 					.contact(new Contact()
 						.name("Projeto-Integrador")
-						.url("https://github.com/felpschneider/Projeto-Integrador")
-						.email("ryansanpaixaos2@gmail.com")))
+						.url("https://github.com/felpschneider/Projeto-Integrador")))
 					.externalDocs(new ExternalDocumentation()
 						.description("Github")
 						.url("https://github.com/felpschneider/Projeto-Integrador/"));
