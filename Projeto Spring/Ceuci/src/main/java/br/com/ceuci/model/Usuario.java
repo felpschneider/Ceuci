@@ -21,30 +21,30 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @Entity
 @Table(name = "tb_usuario")
 public class Usuario {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@NotNull(message = "O atributo Nome é Obrigatório!")
-	@Size(min=3, max=50)
+	@Size(min = 3, max = 50)
 	private String nome;
-	
+
 	@Schema(example = "email@email.com.br")
 	@NotNull(message = "O atributo Usuário é Obrigatório!")
 	@Email(message = "O atributo Usuário deve ser um email válido!")
 	private String usuario;
-	
+
 	@NotBlank(message = "O atributo Senha é Obrigatório!")
 	@Size(min = 8, message = "A Senha deve ter no mínimo 8 caracteres")
 	private String senha;
-	
+
 	private String foto;
-	
-	@OneToMany (mappedBy = "usuario", cascade = CascadeType.ALL)
+
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
-	private List<Produto> produto; 
-	
+	private List<Produto> produto;
+
 	public Usuario(Long id, String nome, String usuario, String senha, String foto) {
 		this.id = id;
 		this.nome = nome;
@@ -52,9 +52,17 @@ public class Usuario {
 		this.senha = senha;
 		this.foto = foto;
 	}
-	
+
 	public Usuario() {
-		
+
+	}
+
+	public List<Produto> getProduto() {
+		return produto;
+	}
+
+	public void setProduto(List<Produto> produto) {
+		this.produto = produto;
 	}
 
 	public long getId() {
